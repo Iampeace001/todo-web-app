@@ -1,0 +1,611 @@
+.app-shell {
+  width: min(100% - 40px, 1060px);
+  margin: 0 auto;
+  padding: 86px 0 36px;
+}
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #242a35;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(38px, 8vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.page-header h1 span {
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.todo-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e9ebf1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgb(36 42 53 / 7%);
+}
+
+.todo-form {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.task-entry {
+  display: flex;
+  gap: 10px;
+}
+
+.task-entry input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #e6e8ef;
+  border-radius: 9px;
+  color: #242a35;
+  background: #fbfbfd;
+  font-size: 14px;
+}
+
+.task-entry input::placeholder {
+  color: #a2a7b2;
+}
+
+.add-button {
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.add-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #4d56c9;
+}
+
+.add-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.schedule-entry {
+  display: flex;
+  gap: 12px;
+}
+
+.schedule-entry label {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.schedule-entry input {
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #e6e8ef;
+  border-radius: 8px;
+  color: #454c5a;
+  background: #fbfbfd;
+  font-size: 12px;
+}
+
+.storage-message {
+  margin: 0;
+  padding: 11px 22px;
+  color: #9c3d3d;
+  background: #fff5f4;
+  font-size: 13px;
+}
+
+.list-toolbar {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.task-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.task-count strong {
+  color: #343b49;
+  font-weight: 700;
+}
+
+.filters {
+  display: flex;
+  gap: 4px;
+}
+
+.filter-button,
+.clear-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.filter-button {
+  padding: 8px 10px;
+  border-radius: 7px;
+}
+
+.filter-button:hover,
+.filter-button.is-selected {
+  color: var(--accent);
+  background: #f0f1ff;
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0 22px;
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.todo-label {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.todo-label input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.checkbox-mark {
+  display: grid;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  place-items: center;
+  border: 1.5px solid #d5d8e1;
+  border-radius: 6px;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.todo-label input:focus-visible + .checkbox-mark {
+  outline: 3px solid #aeb3ff;
+  outline-offset: 2px;
+}
+
+.todo-label input:checked + .checkbox-mark {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.todo-label input:checked + .checkbox-mark::after {
+  width: 8px;
+  height: 4px;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  content: '';
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.todo-title {
+  overflow-wrap: anywhere;
+  color: #3c4351;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.todo-content {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.todo-due {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.is-completed .todo-title {
+  color: #a2a7b2;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  color: #a2a7b2;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0;
+  transition: color 150ms ease, background 150ms ease, opacity 150ms ease;
+}
+
+.todo-item:hover .delete-button,
+.delete-button:focus-visible {
+  opacity: 1;
+}
+
+.delete-button:hover {
+  color: #c84f59;
+  background: #fff0f0;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 40px 22px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.list-footer {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 22px;
+  color: #a2a7b2;
+  font-size: 12px;
+}
+
+.clear-button {
+  padding: 6px 0 6px 8px;
+}
+
+.clear-button:not(:disabled):hover {
+  color: #c84f59;
+}
+
+.clear-button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.page-footer {
+  margin: 22px 0 0;
+  color: #a2a7b2;
+  font-size: 12px;
+  text-align: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 20px;
+}
+
+.calendar-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e9ebf1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgb(36 42 53 / 7%);
+}
+
+.calendar-heading,
+.month-navigation,
+.agenda-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.calendar-heading h2 {
+  margin: 0;
+  color: #2c3340;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.today-button {
+  padding: 7px 10px;
+  border: 1px solid #e6e8ef;
+  border-radius: 7px;
+  color: var(--accent);
+  background: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.today-button:hover {
+  background: #f0f1ff;
+}
+
+.month-navigation {
+  margin: 18px 0 12px;
+}
+
+.month-navigation h3 {
+  margin: 0;
+  color: #353c49;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.month-arrow {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  color: #727988;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.month-arrow:hover {
+  color: var(--accent);
+  background: #f0f1ff;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.weekday-label {
+  padding: 6px 0;
+  color: #a0a5b0;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.calendar-day {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  color: #444b59;
+  background: transparent;
+  font-size: 11px;
+}
+
+.calendar-day:hover {
+  background: #f2f3fb;
+}
+
+.calendar-day.is-outside-month {
+  color: #c2c5cd;
+}
+
+.calendar-day.is-today:not(.is-selected) {
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px #c8cbff;
+  font-weight: 700;
+}
+
+.calendar-day.is-selected {
+  color: #fff;
+  background: var(--accent);
+  font-weight: 700;
+}
+
+.calendar-task-count {
+  position: absolute;
+  right: 3px;
+  bottom: 2px;
+  display: grid;
+  min-width: 12px;
+  height: 12px;
+  padding: 0 2px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  background: #8d94ed;
+  font-size: 8px;
+  line-height: 1;
+}
+
+.calendar-day.is-selected .calendar-task-count {
+  color: var(--accent);
+  background: #fff;
+}
+
+.day-agenda {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.agenda-heading h3 {
+  margin: 0;
+  color: #353c49;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.agenda-heading > span {
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--accent);
+  background: #f0f1ff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.agenda-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agenda-list .todo-item {
+  min-height: 44px;
+  border-bottom: 1px solid #f1f2f5;
+}
+
+.agenda-task {
+  gap: 4px;
+}
+
+.agenda-list .todo-label {
+  gap: 8px;
+}
+
+.agenda-list .checkbox-mark {
+  width: 16px;
+  height: 16px;
+  flex-basis: 16px;
+  border-radius: 5px;
+}
+
+.agenda-list .todo-title {
+  font-size: 11px;
+}
+
+.agenda-list .agenda-time {
+  color: var(--muted);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.agenda-list .delete-button {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
+  font-size: 18px;
+  opacity: 1;
+}
+
+.agenda-empty {
+  margin: 12px 0 2px;
+  color: #999eaa;
+  font-size: 11px;
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    width: min(100% - 28px, 660px);
+    padding-top: 54px;
+  }
+
+  .todo-form {
+    padding: 16px;
+  }
+
+  .task-entry input {
+    padding-inline: 11px;
+  }
+
+  .add-button {
+    padding-inline: 13px;
+  }
+
+  .list-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filter-button {
+    flex: 1;
+  }
+
+  .todo-list {
+    padding-inline: 16px;
+  }
+
+  .delete-button {
+    opacity: 1;
+  }
+
+  .empty-state,
+  .list-footer {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 820px) {
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
